@@ -1,4 +1,4 @@
 <p>
 PreEntrega
-![PreEntrega](./images/PrimeraPreEntrega.jpg)
 </p>
+![PreEntrega](../images/PrimeraPreEntrega.jpg)
