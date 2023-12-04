@@ -1,4 +1,2 @@
-<p>
-PreEntrega
-![PreEntrega](./images/SegundaPreEntrega.jpg)
-</p>
+## PRE ENTREGA:
+![PreEntrega](/images/SegundaPreEntrega.jpg)

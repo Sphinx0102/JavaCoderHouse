@@ -1,4 +1,2 @@
-<p>
-Desafio
-![Desafio](./images/TercerDesafio.jpg)
-</p>
+## DESAFIO:
+![PreEntrega](/images/TercerDesafio.jpg)

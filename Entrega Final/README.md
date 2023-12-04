@@ -1,4 +1,2 @@
-<p>
-Entrega Final
-![Entrega](./images/EntregaFinal.jpg)
-</p>
+## ENTREGA FINAL:
+![PreEntrega](/images/EntregaFinal.jpg)
