@@ -1,9 +1,8 @@
 package com.example.PreEntrega.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.*;
 
 @Data
 @Entity
@@ -12,33 +11,28 @@ public class InvoiceDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name="invoice_id")
-    private Invoice invoice;
     @Column(name="amount")
     private int stockProducts;
-    @ManyToOne
-    @JoinColumn(name="product_id")
-    private Product product;
     @Column(name="total_price")
     private double totalPrice;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "invoice_Id")
+    @JsonIgnore
+    private Invoice invoice;
 
-    public static List<InvoiceDetails> convertTo(List<InvoiceDDTO> invoiceDDTOList) {
-        List<InvoiceDetails> convertedDetails = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="product_Id")
+    private Product product;
 
-        for (InvoiceDDTO invoiceDDTO : invoiceDDTOList) {
-            InvoiceDetails details = new InvoiceDetails();
-            details.setStockProducts(invoiceDDTO.getStockProducts());
-
-            details.setProduct(invoiceDDTO.getProduct());
-
-            details.setTotalPrice(invoiceDDTO.getTotalPrice());
-
-            convertedDetails.add(details);
-        }
-
-        return convertedDetails;
+    public InvoiceDetails() {
     }
 
+    public InvoiceDetails(Invoice invoice, Product product, double totalPrice, int stockProducts) {
+        this.invoice = invoice;
+        this.product = product;
+        this.totalPrice = totalPrice;
+        this.stockProducts = stockProducts;
+    }
 }
+

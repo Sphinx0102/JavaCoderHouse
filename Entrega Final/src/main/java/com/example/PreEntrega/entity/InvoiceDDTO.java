@@ -15,15 +15,6 @@ public class InvoiceDDTO {
     public InvoiceDDTO(int stockProducts, Product product) {
         this.stockProducts = stockProducts;
         this.product = product;
-        this.totalPrice = calculateTotalPrice();
     }
 
-    // Calcular el totalPrice multiplicando el stock del producto por el precio de venta
-    private double calculateTotalPrice() {
-        if (this.totalPrice != 0.0) {
-            return this.totalPrice;
-        } else {
-            return stockProducts * product.getSelsPrice();
-        }
-    }
 }

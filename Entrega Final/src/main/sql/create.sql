@@ -18,6 +18,7 @@ CREATE TABLE api_rest.product (
 
 CREATE TABLE api_rest.invoice (
     id SERIAL PRIMARY KEY,
+    total_product INT,
     enrollment_date DATE,
     total_price DOUBLE PRECISION,
     client_Id INT,

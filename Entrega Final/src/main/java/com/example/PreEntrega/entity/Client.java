@@ -1,8 +1,10 @@
 package com.example.PreEntrega.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class Client {
     private Date birthdate;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Invoice> invoices;
+    @JsonIgnore
+    private List<Invoice> invoices = new ArrayList<>();
 
 }

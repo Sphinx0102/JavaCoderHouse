@@ -3,6 +3,7 @@ package com.example.PreEntrega.service;
 import com.example.PreEntrega.entity.Product;
 import com.example.PreEntrega.entity.ProductDTO;
 import com.example.PreEntrega.repository.ProductRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,16 +23,22 @@ public class ProductService {
         producto.setStock(product.getStock());
         producto.setPurchasePrice(product.getPurchasePrice());
         producto.setSelsPrice(product.getSelsPrice());
-        return this.productRepository.save(producto);}
+        return this.productRepository.save(producto);
+    }
     public Product findById(Integer id){
         var opClient = this.productRepository.findById(id);
         if (opClient.isPresent()){ return opClient.get();}
-        else {return new Product();}
+        else {return null;}
     }
 
-    public String deleteById(Integer id) {
-        productRepository.deleteById(id);
-        return "Producto con ID " + id + " eliminado correctamente.";
+    public void deleteById(Integer id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+
+        if (productOptional.isPresent()) {
+            productRepository.deleteById(id);
+        } else {
+            throw new EntityNotFoundException("Producto no encontrado con ID " + id);
+        }
     }
 
     public Product update(Integer id, ProductDTO productDTO) {

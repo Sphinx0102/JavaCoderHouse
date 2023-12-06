@@ -3,6 +3,8 @@ package com.example.PreEntrega.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,15 +15,17 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name="clientId")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="client_Id")
     private Client client;
-    @CreatedDate
+    @Column(name="total_product")
+    private int totalStockProduct;
     @Column(name="enrollment_date")
     private Date enrollmentDate;
 
     private double total;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
-    private List<InvoiceDetails> invoicesDetails;
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<InvoiceDetails> invoicesDetails = new ArrayList<>();
+
 }
