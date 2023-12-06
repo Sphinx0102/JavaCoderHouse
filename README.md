@@ -21,5 +21,5 @@
 ##
 
 ## Certificado:
-![PreEntrega](/images/PrimeraPreEntrega.jpg)
+![Certified](/images/Certificado/certificado.jpg)
 
