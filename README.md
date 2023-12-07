@@ -5,7 +5,7 @@
 ##
 
 <p align="center">
-  Ejercicios Realizados con las Siguientes Tecnologias:
+  <b>Technologies Used:</b>
 </p>
 
 
@@ -18,7 +18,7 @@
   <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white" alt="Hibernate">
 </p>
 
-##
+___
 
 ## Certificado:
 ![Certified](/images/Certificado/certificado.jpg)
